@@ -180,7 +180,7 @@ public class InsurancePolicyMain {
 					System.out.println("Invalid choice! Please try again.");
 				}
 			}while(menuChoice != 4);
-		} while(choice != 4);
-		input.close();
+		} while(true);
+//		input.close();
 	}
 }
