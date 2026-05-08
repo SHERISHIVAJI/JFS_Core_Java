@@ -76,7 +76,7 @@ class ServiceVehicle extends Vehicle implements ServiceOperations {
 			System.out.println("Invalid Category");
 			return;
 		}
-		category = newCategory;
+		this.category = newCategory;
 		System.out.println("Updated Service Category : " + category);
 	}
 
@@ -86,7 +86,7 @@ class ServiceVehicle extends Vehicle implements ServiceOperations {
 			System.out.println("Invalid Center Name");
 			return;
 		}
-		centerName = newCenter;
+		this.centerName = newCenter;
 		System.out.println("Updated Service Center : " + centerName);
 	}	
 }
@@ -115,10 +115,8 @@ public class Main {
 			return;
 		}
 		
-//		ServiceVehicle serviceVehicle = new ServiceVehicle(name, vehicleNumber, vehicleNumber, center, category);
-		
 		Vehicle vehicle = new ServiceVehicle(name, vehicleNumber, type, center, category);
-		ServiceOperations operations = new ServiceVehicle();
+		ServiceOperations operations = (ServiceVehicle)vehicle;
 		
 		boolean stop = true;
 		do {
@@ -136,19 +134,16 @@ public class Main {
 			case 1: {
 				System.out.print("Enter new Service Category : ");
 				String newCategory = sc.nextLine();
-//				serviceVehicle.updateServiceCategory(newCategory);
 				operations.updateServiceCategory(newCategory);
 				break;
 			}
 			case 2: {
 				System.out.print("Enter new Service Center : ");
 				String newCenter = sc.nextLine();
-//				serviceVehicle.updateServiceCenter(newCenter);
 				operations.updateServiceCenter(newCenter);
 				break;
 			}
 			case 3: {
-//				serviceVehicle.displayProfile();
 				vehicle.displayProfile();
 				break;
 			}
