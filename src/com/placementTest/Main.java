@@ -1,6 +1,5 @@
 package com.placementTest;
 
-import java.util.Locale.Category;
 import java.util.Scanner;
 
 abstract class Vehicle {
@@ -116,9 +115,13 @@ public class Main {
 			return;
 		}
 		
-		ServiceVehicle vehicle = new ServiceVehicle(name, vehicleNumber, type, center, category);
+//		ServiceVehicle serviceVehicle = new ServiceVehicle(name, vehicleNumber, vehicleNumber, center, category);
 		
-		while(true) {
+		Vehicle vehicle = new ServiceVehicle(name, vehicleNumber, type, center, category);
+		ServiceOperations operations = new ServiceVehicle();
+		
+		boolean stop = true;
+		do {
 			System.out.println("\n--- Vehicle Service Menu ---");
 			System.out.println("1. Update Service Category");
 			System.out.println("2. Update Service Center");
@@ -133,27 +136,32 @@ public class Main {
 			case 1: {
 				System.out.print("Enter new Service Category : ");
 				String newCategory = sc.nextLine();
-				vehicle.updateServiceCategory(newCategory);
+//				serviceVehicle.updateServiceCategory(newCategory);
+				operations.updateServiceCategory(newCategory);
 				break;
 			}
 			case 2: {
 				System.out.print("Enter new Service Center : ");
 				String newCenter = sc.nextLine();
-				vehicle.updateServiceCenter(newCenter);
+//				serviceVehicle.updateServiceCenter(newCenter);
+				operations.updateServiceCenter(newCenter);
 				break;
 			}
 			case 3: {
+//				serviceVehicle.displayProfile();
 				vehicle.displayProfile();
 				break;
 			}
 			case 4: {
 				System.out.println("Exiting System...");
-				System.exit(0);
+				stop = false;
+				break;
 			}
 			default: {
 				System.out.println("Invalid Choice!");
 			}
 			}
-		}
+		}while(stop);
+		sc.close();
 	}
 }
