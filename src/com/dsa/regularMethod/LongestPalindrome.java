@@ -1,0 +1,11 @@
+package com.dsa.regularMethod;
+
+import java.util.Scanner;
+
+public class LongestPalindrome {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter string: ");
+		String str = sc.next();
+	}
+}
